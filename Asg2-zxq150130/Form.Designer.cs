@@ -84,7 +84,7 @@
             // 
             // reveiveDatePicker
             // 
-            this.reveiveDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.recordBindingSource, "recieveDate", true));
+            this.reveiveDatePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.recordBindingSource, "recieveDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.reveiveDatePicker.Location = new System.Drawing.Point(578, 385);
             this.reveiveDatePicker.Name = "reveiveDatePicker";
             this.reveiveDatePicker.Size = new System.Drawing.Size(200, 20);
@@ -95,7 +95,7 @@
             this.attachedProofCheckBox.AutoSize = true;
             this.attachedProofCheckBox.Checked = true;
             this.attachedProofCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.attachedProofCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.recordBindingSource, "isProofAttached", true));
+            this.attachedProofCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.recordBindingSource, "isProofAttached", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.attachedProofCheckBox.Location = new System.Drawing.Point(578, 360);
             this.attachedProofCheckBox.Name = "attachedProofCheckBox";
             this.attachedProofCheckBox.Size = new System.Drawing.Size(44, 17);
@@ -119,6 +119,7 @@
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "email", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.emailTextBox.Location = new System.Drawing.Point(578, 332);
+            this.emailTextBox.MaxLength = 60;
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(349, 20);
             this.emailTextBox.TabIndex = 9;
@@ -127,6 +128,7 @@
             // 
             this.phoneNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "phoneNumber", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.phoneNumberTextBox.Location = new System.Drawing.Point(578, 304);
+            this.phoneNumberTextBox.MaxLength = 21;
             this.phoneNumberTextBox.Name = "phoneNumberTextBox";
             this.phoneNumberTextBox.Size = new System.Drawing.Size(349, 20);
             this.phoneNumberTextBox.TabIndex = 8;
@@ -135,6 +137,7 @@
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "city", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cityTextBox.Location = new System.Drawing.Point(578, 220);
+            this.cityTextBox.MaxLength = 25;
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(349, 20);
             this.cityTextBox.TabIndex = 5;
@@ -143,6 +146,7 @@
             // 
             this.middleInitialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "middleInitial", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.middleInitialTextBox.Location = new System.Drawing.Point(578, 136);
+            this.middleInitialTextBox.MaxLength = 1;
             this.middleInitialTextBox.Name = "middleInitialTextBox";
             this.middleInitialTextBox.Size = new System.Drawing.Size(349, 20);
             this.middleInitialTextBox.TabIndex = 2;
@@ -151,6 +155,7 @@
             // 
             this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "zip", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.zipTextBox.Location = new System.Drawing.Point(578, 276);
+            this.zipTextBox.MaxLength = 9;
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(349, 20);
             this.zipTextBox.TabIndex = 7;
@@ -159,6 +164,7 @@
             // 
             this.addressLine2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "addressLine2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.addressLine2TextBox.Location = new System.Drawing.Point(578, 192);
+            this.addressLine2TextBox.MaxLength = 35;
             this.addressLine2TextBox.Name = "addressLine2TextBox";
             this.addressLine2TextBox.Size = new System.Drawing.Size(349, 20);
             this.addressLine2TextBox.TabIndex = 4;
@@ -167,6 +173,7 @@
             // 
             this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "lastName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lastNameTextBox.Location = new System.Drawing.Point(578, 108);
+            this.lastNameTextBox.MaxLength = 20;
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(349, 20);
             this.lastNameTextBox.TabIndex = 1;
@@ -202,6 +209,7 @@
             // 
             this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "state", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.stateTextBox.Location = new System.Drawing.Point(578, 248);
+            this.stateTextBox.MaxLength = 2;
             this.stateTextBox.Name = "stateTextBox";
             this.stateTextBox.Size = new System.Drawing.Size(349, 20);
             this.stateTextBox.TabIndex = 6;
@@ -219,6 +227,7 @@
             // 
             this.addressLine1TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "addressLine1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.addressLine1TextBox.Location = new System.Drawing.Point(578, 164);
+            this.addressLine1TextBox.MaxLength = 35;
             this.addressLine1TextBox.Name = "addressLine1TextBox";
             this.addressLine1TextBox.Size = new System.Drawing.Size(349, 20);
             this.addressLine1TextBox.TabIndex = 3;
@@ -245,6 +254,7 @@
             // 
             this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.recordBindingSource, "firstName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.firstNameTextBox.Location = new System.Drawing.Point(578, 80);
+            this.firstNameTextBox.MaxLength = 20;
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(349, 20);
             this.firstNameTextBox.TabIndex = 0;

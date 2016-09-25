@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Asg2_zxq150130
 {
@@ -33,6 +34,7 @@ namespace Asg2_zxq150130
 
         private void didClickSubmitButton(object sender, EventArgs e)
         {
+            if (!validate()) { return; }
             insertOrUpdate();
             saveBackToFile();
         }
@@ -55,6 +57,72 @@ namespace Asg2_zxq150130
             setFormDataSource(records[grid.CurrentCell.RowIndex]);
         }
 
+
+
+
+
+        private bool validate() {
+            if (thisRecord.firstName == "") {
+                MessageBox.Show("Please fill First Name.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.lastName == "")
+            {
+                MessageBox.Show("Please fill Last Name.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.addressLine1 == "")
+            {
+                MessageBox.Show("Please fill Address at least line 1.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.city == "")
+            {
+                MessageBox.Show("Please fill City.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.state == "")
+            {
+                MessageBox.Show("Please fill State.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(thisRecord.state, "^[a-z][a-z]$", RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Invalide State.\n(Should be two letters)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.zip == "")
+            {
+                MessageBox.Show("Please fill Zip Code.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(thisRecord.zip, "^[0-9]*$", RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Invalid Zip Code.\n(Only numbers permited.)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.phoneNumber == "")
+            {
+                MessageBox.Show("Please fill Phone Number.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(thisRecord.phoneNumber, "^[^a-z]*$", RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Invalid Phone Number.\n(Letters not permitted)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (thisRecord.email == "")
+            {
+                MessageBox.Show("Please fill Email Address.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!Regex.IsMatch(thisRecord.email, "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", RegexOptions.IgnoreCase))
+            {
+                MessageBox.Show("Invalid Email Address.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);  
+                return false;
+            }
+            return true;
+        }
 
 
         private void setFormDataSource(Record source)
