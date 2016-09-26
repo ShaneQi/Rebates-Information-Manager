@@ -62,66 +62,73 @@ namespace Asg2_zxq150130
 
 
         private bool validate() {
+            bool validate = true;
+            Label[] labels = new Label[] { firstNameErrorLabel, lastNameErrorLabel, middleInitialErrorLabel,
+                addressLine1ErrorLabel, addressLine2ErrorLabel, cityErrorLabel,
+                stateErrorLabel, zipErrorLabel, phoneNumberErrorLabel, emailErrorLabel };
+            foreach (Label label in labels) {
+                label.Text = "";
+            }
             if (thisRecord.firstName == "") {
-                MessageBox.Show("Please fill First Name.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                firstNameErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (thisRecord.lastName == "")
             {
-                MessageBox.Show("Please fill Last Name.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                lastNameErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (thisRecord.addressLine1 == "")
             {
-                MessageBox.Show("Please fill Address at least line 1.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                addressLine1ErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (thisRecord.city == "")
             {
-                MessageBox.Show("Please fill City.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                cityErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (thisRecord.state == "")
             {
-                MessageBox.Show("Please fill State.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                stateErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (!Regex.IsMatch(thisRecord.state, "^[a-z][a-z]$", RegexOptions.IgnoreCase))
             {
-                MessageBox.Show("Invalide State.\n(Should be two letters)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                stateErrorLabel.Text = "SHOULD BE TWO LETTERS.";
+                validate = false;
             }
             if (thisRecord.zip == "")
             {
-                MessageBox.Show("Please fill Zip Code.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                zipErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (!Regex.IsMatch(thisRecord.zip, "^[0-9]*$", RegexOptions.IgnoreCase))
             {
-                MessageBox.Show("Invalid Zip Code.\n(Only numbers permited.)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                zipErrorLabel.Text = "ONLY NUMBERS PERMITTED.";
+                validate = false;
             }
             if (thisRecord.phoneNumber == "")
             {
-                MessageBox.Show("Please fill Phone Number.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                phoneNumberErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (!Regex.IsMatch(thisRecord.phoneNumber, "^[^a-z]*$", RegexOptions.IgnoreCase))
             {
-                MessageBox.Show("Invalid Phone Number.\n(Letters not permitted)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                phoneNumberErrorLabel.Text = "LETTERS NOT PERMITTED.";
+                validate = false;
             }
             if (thisRecord.email == "")
             {
-                MessageBox.Show("Please fill Email Address.\n(Only Middle Initial and Address Line 2 may be blank)", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                emailErrorLabel.Text = "CAN'T BE EMPTY.";
+                validate = false;
             }
             if (!Regex.IsMatch(thisRecord.email, "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$", RegexOptions.IgnoreCase))
             {
-                MessageBox.Show("Invalid Email Address.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);  
-                return false;
+                emailErrorLabel.Text = "INVALID EMAIL.";
+                validate = false;
             }
-            return true;
+            return validate;
         }
 
 
@@ -174,7 +181,5 @@ namespace Asg2_zxq150130
 
             File.WriteAllText(filePath, text);
         }
-
-
     }
 }
