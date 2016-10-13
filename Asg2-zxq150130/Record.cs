@@ -62,10 +62,7 @@ namespace Asg2_zxq150130
 
         }
 
-        public Record(){
-            createdTime = String.Format("{0:u}", DateTime.Now);
-            updatedTime = String.Format("{0:u}", DateTime.Now);
-        }
+        public Record(){}
 
         public string toLine() {
             string result = "";

@@ -181,5 +181,12 @@ namespace Asg2_zxq150130
 
             File.WriteAllText(filePath, text);
         }
+
+        private void firstNameTextDidChange(object sender, EventArgs e)
+        {
+            if (thisRecord.createdTime == "" && firstNameTextBox.Text != "") {
+                    thisRecord.createdTime = String.Format("{0:u}", DateTime.Now);
+            }
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
             this.reveiveDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.recordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.attachedProofCheckBox = new System.Windows.Forms.CheckBox();
             this.grid = new System.Windows.Forms.DataGridView();
             this.emailTextBox = new System.Windows.Forms.TextBox();
@@ -67,9 +68,8 @@
             this.zipErrorLabel = new System.Windows.Forms.Label();
             this.phoneNumberErrorLabel = new System.Windows.Forms.Label();
             this.emailErrorLabel = new System.Windows.Forms.Label();
-            this.recordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -268,6 +268,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(261, 20);
             this.firstNameTextBox.TabIndex = 0;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.firstNameTextDidChange);
             // 
             // label5
             // 
@@ -423,10 +424,6 @@
             this.emailErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.emailErrorLabel.TabIndex = 29;
             // 
-            // recordBindingSource
-            // 
-            this.recordBindingSource.DataSource = typeof(Asg2_zxq150130.Record);
-            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,8 +469,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form";
             this.Text = "Form";
-            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
