@@ -1,0 +1,4 @@
+Number of records: 10 Records
+Entering time: max: 33 s	min: 24 s	avg: 29.1 s
+Entering interval: max: 3 s	min: 2 s	avg: 2.22 s
+Total time: 311 Seconds
