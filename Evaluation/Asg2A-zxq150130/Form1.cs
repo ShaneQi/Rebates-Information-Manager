@@ -51,6 +51,12 @@ namespace Asg2A_zxq150130
         }
 
         private string calculate() {
+            //  Handle invalid input file;
+            if (records.Count == 0) {
+                MessageBox.Show("File is invalid for evaluation", "Error");
+                return "";
+            }
+
             string result = "";
 
             //  Number of records.
