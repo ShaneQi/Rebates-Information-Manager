@@ -36,10 +36,14 @@
             this.browseButton = new System.Windows.Forms.Button();
             this.fileLabel = new System.Windows.Forms.Label();
             this.numberLabel = new System.Windows.Forms.Label();
-            this.timeLabel = new System.Windows.Forms.Label();
-            this.intervalLabel = new System.Windows.Forms.Label();
+            this.timeLabelMax = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.timeLabelMin = new System.Windows.Forms.Label();
+            this.timeLabelAvg = new System.Windows.Forms.Label();
+            this.intervalLabelMax = new System.Windows.Forms.Label();
+            this.intervalLabelMin = new System.Windows.Forms.Label();
+            this.intervalLabelAvg = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -115,23 +119,14 @@
             this.numberLabel.Size = new System.Drawing.Size(300, 15);
             this.numberLabel.TabIndex = 2;
             // 
-            // timeLabel
+            // timeLabelMax
             // 
-            this.timeLabel.BackColor = System.Drawing.Color.White;
-            this.timeLabel.Location = new System.Drawing.Point(141, 114);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.timeLabel.Size = new System.Drawing.Size(300, 15);
-            this.timeLabel.TabIndex = 2;
-            // 
-            // intervalLabel
-            // 
-            this.intervalLabel.BackColor = System.Drawing.Color.White;
-            this.intervalLabel.Location = new System.Drawing.Point(141, 147);
-            this.intervalLabel.Name = "intervalLabel";
-            this.intervalLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.intervalLabel.Size = new System.Drawing.Size(300, 15);
-            this.intervalLabel.TabIndex = 2;
+            this.timeLabelMax.BackColor = System.Drawing.Color.White;
+            this.timeLabelMax.Location = new System.Drawing.Point(141, 114);
+            this.timeLabelMax.Name = "timeLabelMax";
+            this.timeLabelMax.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.timeLabelMax.Size = new System.Drawing.Size(88, 15);
+            this.timeLabelMax.TabIndex = 2;
             // 
             // totalLabel
             // 
@@ -146,14 +141,63 @@
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
+            // timeLabelMin
+            // 
+            this.timeLabelMin.BackColor = System.Drawing.Color.White;
+            this.timeLabelMin.Location = new System.Drawing.Point(247, 114);
+            this.timeLabelMin.Name = "timeLabelMin";
+            this.timeLabelMin.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.timeLabelMin.Size = new System.Drawing.Size(88, 15);
+            this.timeLabelMin.TabIndex = 2;
+            // 
+            // timeLabelAvg
+            // 
+            this.timeLabelAvg.BackColor = System.Drawing.Color.White;
+            this.timeLabelAvg.Location = new System.Drawing.Point(353, 114);
+            this.timeLabelAvg.Name = "timeLabelAvg";
+            this.timeLabelAvg.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.timeLabelAvg.Size = new System.Drawing.Size(88, 15);
+            this.timeLabelAvg.TabIndex = 2;
+            // 
+            // intervalLabelMax
+            // 
+            this.intervalLabelMax.BackColor = System.Drawing.Color.White;
+            this.intervalLabelMax.Location = new System.Drawing.Point(141, 147);
+            this.intervalLabelMax.Name = "intervalLabelMax";
+            this.intervalLabelMax.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.intervalLabelMax.Size = new System.Drawing.Size(88, 15);
+            this.intervalLabelMax.TabIndex = 2;
+            // 
+            // intervalLabelMin
+            // 
+            this.intervalLabelMin.BackColor = System.Drawing.Color.White;
+            this.intervalLabelMin.Location = new System.Drawing.Point(247, 147);
+            this.intervalLabelMin.Name = "intervalLabelMin";
+            this.intervalLabelMin.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.intervalLabelMin.Size = new System.Drawing.Size(88, 15);
+            this.intervalLabelMin.TabIndex = 2;
+            // 
+            // intervalLabelAvg
+            // 
+            this.intervalLabelAvg.BackColor = System.Drawing.Color.White;
+            this.intervalLabelAvg.Location = new System.Drawing.Point(353, 147);
+            this.intervalLabelAvg.Name = "intervalLabelAvg";
+            this.intervalLabelAvg.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.intervalLabelAvg.Size = new System.Drawing.Size(88, 15);
+            this.intervalLabelAvg.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 239);
             this.Controls.Add(this.totalLabel);
-            this.Controls.Add(this.intervalLabel);
-            this.Controls.Add(this.timeLabel);
+            this.Controls.Add(this.intervalLabelAvg);
+            this.Controls.Add(this.timeLabelAvg);
+            this.Controls.Add(this.intervalLabelMin);
+            this.Controls.Add(this.timeLabelMin);
+            this.Controls.Add(this.intervalLabelMax);
+            this.Controls.Add(this.timeLabelMax);
             this.Controls.Add(this.numberLabel);
             this.Controls.Add(this.fileLabel);
             this.Controls.Add(this.browseButton);
@@ -179,10 +223,14 @@
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.Label fileLabel;
         private System.Windows.Forms.Label numberLabel;
-        private System.Windows.Forms.Label timeLabel;
-        private System.Windows.Forms.Label intervalLabel;
+        private System.Windows.Forms.Label timeLabelMax;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Label timeLabelMin;
+        private System.Windows.Forms.Label timeLabelAvg;
+        private System.Windows.Forms.Label intervalLabelMax;
+        private System.Windows.Forms.Label intervalLabelMin;
+        private System.Windows.Forms.Label intervalLabelAvg;
     }
 }
 
